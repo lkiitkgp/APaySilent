@@ -29,10 +29,10 @@ public class EncryptionTask extends AsyncTask<Object, Void, Void> {
 
     private static final String LOG_TAG = "EncryptionTask";
 
-    private static final String ENDPOINT =    "https://amazon-perpule.appspot.com";
-    private static final String PROCESS_CHARGE_PATH = "/signin1";
+    private static final String ENDPOINT =    "https://micro-s-perpule.appspot.com";
+    private static final String PROCESS_CHARGE_PATH = "/signAndEncrypt";
     private static final String GET_CHARGE_STATUS_PATH = "/signAndEncryptForOperation";
-    private static final String VALIDATION_PATH = "/VerifySignature";
+    private static final String VALIDATION_PATH = "/verifySignature";
 
 
     private Operation operation = null;

@@ -11,6 +11,10 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.text.SimpleDateFormat;
+import java.time.Instant;
+import java.time.LocalDateTime;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -143,26 +147,34 @@ public class CompletionActivity extends AppCompatActivity {
 
                         } else if (response != null) {
                             hideProgressBar();
-                            ((TextView) findViewById(R.id.completeMoreInfoView)).setText(String.format("Amount:%s\n" +
-                                            "Currency Code: %s\n" +
-                                            "Description: %s\n" +
-                                            "Merchant Transaction ID: %s\n" +
-                                            "Reason Code: %s\n" +
-                                            "SellerCustomData: %s\n" +
-                                            "Signature: %s\n" +
+                            SimpleDateFormat sdf = new SimpleDateFormat("dd-MMM-yyyy HH:mm:ss");
+                            Date date123 = new Date(Long.parseLong(response.getTransactionDate()));
+ //                           String date123 = sdf.format(response.getTransactionDate());
+
+
+
+                            ((TextView) findViewById(R.id.completeMoreInfoView)).setText(String.format("Amount:%s %s\n" +
+//                                            "Currency Code: %s\n" +
+//                                            "Description: %s\n" +
+//                                            "Merchant Transaction ID: %s\n" +
+//                                            "Reason Code: %s\n" +
+//                                            "SellerCustomData: %s\n" +
+//                                            "Signature: %s\n" +
+                                            "TransactionStatus: %s\n"+
                                             "TransactionDate: %s\n" +
-                                            "TransactionID: %s\n" +
-                                            "TransactionStatus: %s\n",
+                                            "TransactionID: %s\n",
                                     response.getTransactionValue(),
                                     response.getTransactionCurrencyCode(),
-                                    response.getTransactionStatusDescription(),
-                                    response.getMerchantTransactionId(),
-                                    response.getTransactionStatusCode(),
-                                    response.getMerchantCustomData(),
-                                    response.getSignature(),
-                                    response.getTransactionDate(),
-                                    response.getTransactionId(),
-                                    response.getTransactionStatus().name()));
+//                                    response.getTransactionStatusDescription(),
+//                                    response.getMerchantTransactionId(),
+//                                    response.getTransactionStatusCode(),
+//                                    response.getMerchantCustomData(),
+//                                    response.getSignature(),
+                                    //response.getTransactionDate(),
+                                    response.getTransactionStatus().name(),
+                                    sdf.format(date123),
+                                    response.getTransactionId()
+                                    ));
                             verifyChargeStatusResponse(response);
                         } else {
                             hideProgressBar();
@@ -182,8 +194,8 @@ public class CompletionActivity extends AppCompatActivity {
 
     private Map<String, String> getChargeStatusParams(final String transactionId) {
         return new HashMap<String, String>() {{
-      //      put("sellerId", "A28RUGPVUTQXU1");
-      //      put("awsAccessKeyId", "AKIAEXVSCLCHUVQHL2YA");
+           // put("sellerId", "AZ4WQCLDT2DF0");
+         //   put("awsAccessKeyId", "AKIAJAKG6LME27HVCD3A");
             put("transactionId", transactionId);
             put("transactionIdType", "TRANSACTION_ID");
         }};
@@ -210,4 +222,8 @@ public class CompletionActivity extends AppCompatActivity {
             }
         });
     }
+
+
+
+
 }

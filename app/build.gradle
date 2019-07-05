@@ -5,7 +5,7 @@ android {
     buildToolsVersion "26.0.1"
     defaultConfig {
         applicationId "com.perpule.apaysilent1"
-        minSdkVersion 21
+        minSdkVersion 16
         targetSdkVersion 26
         versionCode 1
         versionName "1.0"
@@ -19,7 +19,7 @@ android {
     }
     signingConfigs {
         debug {
-            storeFile file('C:\\Users\\Lalit Kumar\\Desktop\\amazon pay intergration\\New folder\\APaySilent\\APaySilent\\mykeystore.jks')
+            storeFile file('E:\\New folder\\amazon pay intergration\\New folder\\APaySilent\\APaySilent\\mykeystore.jks')
             keyAlias 'mykey'
             keyPassword 'amazon'
             storePassword 'amazonpay'
@@ -38,4 +38,5 @@ dependencies {
     compile 'com.android.support.constraint:constraint-layout:1.0.2'
     compile 'com.android.support:customtabs:26.+'
     testCompile 'junit:junit:4.12'
+    compile 'pl.droidsonroids.gif:android-gif-drawable:1.2.3'
 }
