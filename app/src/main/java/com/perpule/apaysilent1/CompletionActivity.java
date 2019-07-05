@@ -40,7 +40,7 @@ public class CompletionActivity extends AppCompatActivity {
             //getChargeStatus((ProcessChargeResponse) response);
         }
     }
-
+// check check
     private void verifyProcessChargeResponse(ProcessChargeResponse response){
         Log.wtf("validation params","=");
         for(Map.Entry<String,String> e: response.getVerificationParameters().entrySet()){
